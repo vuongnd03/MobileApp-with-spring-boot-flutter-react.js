@@ -5,15 +5,22 @@ Link demo : https://drive.google.com/file/d/1nm6xV0nNtdiYlLYH1xmA4_sIHBNpV6uC/vi
 - 🌐 **React.js**: Giao diện quản trị trên web
 - 🚀 **Spring Boot**: Backend API, xử lý logic và kết nối cơ sở dữ liệu
 
-## 🔧 Các chức năng chính
+##  Các chức năng chính
 - Đăng ký / Đăng nhập người dùng (xác thực bằng JWT) và lấy lại mật khẩu qua email.
 - Quản lý sản phẩm, giỏ hàng.
-- Tìm kiếm sản phẩm theo real-time.
+- Tìm kiếm sản phẩm theo real-time  với truy vấn tối ưu qua chỉ mục (index.
 - sắp xếp sản phẩm theo mức giá.
 - hiển thị sản phẩm và các hình ảnh phụ theo loại.
 - Giao tiếp an toàn giữa frontend và backend.
 - Giao diện quản trị (admin dashboard) để thêm, sửa, xoá sản phẩm.
-
+ Tối ưu hiệu năng
+## Xử lý đồng thời hàng trăm request đăng ký tài khoản cùng lúc bằng cách:
+Sử dụng chỉ mục (index) trên các cột email và username để đảm bảo tính duy nhất và truy vấn nhanh.
+Kết hợp Spring Boot @Transactional để đảm bảo tính toàn vẹn dữ liệu khi nhiều người cùng thao tác.
+Cấu hình connection pool với HikariCP để tối ưu kết nối database trong môi trường tải cao.
+## Tối ưu tìm kiếm sản phẩm:
+Tạo full-text index hoặc sử dụng LIKE + chỉ mục B-tree trong SQL Server trên trường product_name.
+Cho phép tìm kiếm theo từ khoá một cách real-time mà không ảnh hưởng hiệu suất.
 ## 🛠️ Công nghệ sử dụng
 - Ngôn ngữ: Java, Dart, JavaScript
 - Backend: Spring Boot, JPA, Hibernate
